@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Columna de la tabla -->
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="h4">#</th>
+            <th class="h4">Nombre</th>
+            <th class="h4">Nombre científico</th>
+            <th class="h4">Alimentación</th>
+            <th class="h4">Distribución Mundial</th>
+          </tr>
+        </thead>
+        <tbody style="background-color: #f2f2f2;">
+          <tr *ngFor="let p of pinguinos" (click)="onSelected(p)">
+            <td>
+              <dd>{{p.id}}</dd>
+            </td>
+            <td>
+              <dd>{{p.name}}</dd>
+            </td>
+            <td>
+              <dd>{{p.scientific_name}}</dd>
+            </td>
+            <td>
+              <dd>{{p.feeding}}</dd>
+            </td>
+            <td>
+              <dd>{{p.global_distribution}}</dd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-6">
+      <div *ngIf="selected">
+        <app-pinguino-detail [PinguinoDetail]="selectedPinguino"></app-pinguino-detail>
+      </div>
+    </div>
+  </div>
+</div>
